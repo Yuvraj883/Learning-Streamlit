@@ -17,7 +17,7 @@ def get_weather(location):
 # Authentication
 
 names = ["Yuvraj", "Kanishq"];
-emails = ['yuvraj@gmail.com', 'kanishq@gmail.com'];
+users = ['yuvraj88', 'kanishq55'];
 password = ['Yuvraj123', 'Kanishq123'];
 
 hashed_passwords = stauth.Hasher(password).generate();
@@ -34,9 +34,9 @@ with file_path.open('rb') as file:
     hashed_pass = pickle.load(file)
 
 credentials = {"usernames": {}}
-for email, name, pwd in zip(emails, names, hashed_pass):
+for user, name, pwd in zip(users, names, hashed_pass):
     user_dict = {"name": name, "password": pwd}
-    credentials["usernames"].update({email: user_dict})
+    credentials["usernames"].update({user: user_dict})
 
 # Authentication object creation
 authenticator = stauth.Authenticate(credentials, "weather_auth", "xyzabc", cookie_expiry_days=30)
@@ -45,9 +45,9 @@ authenticator = stauth.Authenticate(credentials, "weather_auth", "xyzabc", cooki
 name, authentication_status, _ = authenticator.login("main", "login")  # Ignoring third value (_)
 
 if authentication_status == False:
-    st.error("Incorrect email or password!!")
+    st.error("Incorrect username or password!!")
 elif authentication_status == None:
-    st.warning("Please enter email and password!!")
+    st.warning("Please enter username and password!!")
 elif authentication_status == True:
     st.title("Weather App")
     authenticator.logout("Log Out", "main")
