@@ -15,8 +15,18 @@ def get_weather(location):
     return response.json()
 
 # Authentication
-names = ["Yuvraj", "Kanishq"]
-emails = ['yuvraj@gmail.com', 'kanishq@gmail.com']
+
+names = ["Yuvraj", "Kanishq"];
+emails = ['yuvraj@gmail.com', 'kanishq@gmail.com'];
+password = ['Yuvraj123', 'Kanishq123'];
+
+hashed_passwords = stauth.Hasher(password).generate();
+
+file_path = Path(__file__).parent/'hashed_pass.pkl';
+
+with file_path.open('wb') as file:
+  pickle.dump(hashed_passwords, file);
+
 
 # Load hashed passwords
 file_path = Path(__file__).parent / 'hashed_pass.pkl'
