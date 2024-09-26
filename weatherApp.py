@@ -40,6 +40,7 @@ elif authentication_status == None:
     st.warning("Please enter email and password!!")
 elif authentication_status == True:
     st.title("Weather App")
+    authenticator.logout("Log Out", "main")
     st.markdown(f'##Welcom {name}')
 
     location = st.text_input("Enter the name of the city:")
