@@ -4,7 +4,7 @@ import streamlit_authenticator as stauth;
 
 names = ["Yuvraj", "Kanishq"];
 email = ['yuvraj@gmail.com', 'kanishq@gmail.com'];
-password = ['Yuvraj123', 'Kanishq123'];
+password = ['XXX', 'XXX'];
 
 hashed_passwords = stauth.Hasher(password).generate();
 
